@@ -60,5 +60,8 @@ const displayHub = (universe, dataLimit) => {
 
 
 
+document.getElementById('btn-show-all').addEventListener('click', function () {
+    loadAiUniverse();
+});
 
 loadAiUniverse(6);
