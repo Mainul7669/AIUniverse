@@ -55,13 +55,26 @@ const displayHub = (universe, dataLimit) => {
         </div>
         `;
         hubContainer.appendChild(toolDiv);
-    })
+    });
+        // stop spinner or loader
+        toggleSpinner(false);
 }
 
 
+const toggleSpinner = isLoading => {
+    const loaderSection = document.getElementById('loader');
+    if(isLoading){
+        loaderSection.classList.remove('d-none')
+    }
+    else{
+        loaderSection.classList.add('d-none');
+    }
+}
 
 document.getElementById('btn-show-all').addEventListener('click', function () {
+    toggleSpinner(true);
     loadAiUniverse();
 });
 
-loadAiUniverse(6);
+
+ loadAiUniverse(6);
