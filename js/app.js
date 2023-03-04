@@ -23,7 +23,10 @@ const displayHub = (universe, dataLimit) => {
 
 
 // display all card
-   
+    universe.forEach(tool => {
+        const toolDiv = document.createElement('div');
+        toolDiv.classList.add('col');
+        toolDiv.innerHTML = `
         <div class ="card p-4 rounded-4">
         <img src="${tool.image}" class = "card-img-top rounded-3">
         <div class="card-body">
