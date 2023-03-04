@@ -2,3 +2,9 @@
     line-height: 2rem;
 }
 
+#accuracy {
+    position:absolute;
+    margin-left: -150px;
+    margin-top: 6px;
+}
+

@@ -67,7 +67,8 @@ const toggleSpinner = isLoading => {
         loaderSection.classList.remove('d-none')
     }
     else{
-        loaderSection.classList.add('d-none');
+         loaderSection.classList.add('d-none');
+        
     }
 }
 
@@ -89,6 +90,7 @@ document.getElementById('btn-show-all').addEventListener('click', function () {
 
 const displayApiDetails = tool =>{
     console.log(tool);
+    toggleSpinner(true);
     const modalDetails = document.getElementById('api-details');
 
     modalDetails.innerHTML = `
@@ -131,25 +133,25 @@ const displayApiDetails = tool =>{
     <div>
     <h5>Integrations</h5>
     <li>${tool.integrations[0]}</li>
-    <li>${tool.integrations[1]}</li>
-    <li>${tool.integrations[2]}</li>
+    <li>${tool.integrations[1] ? tool.integrations[1]: "No Data Found"}</li>
+    <li>${tool.integrations[2] ? tool.integrations[2]: "No data found"}</li>
     </div>
 
     </div>
     </div>
 
 
-    <div class = "border border-light-subtle rounded-5 p-3 ">
+    <div class = "border ms-4 border-light-subtle rounded-4 p-3 ">
 
 
 
     <img src="${tool.image_link[0]}" class = "card-img-top rounded-3">
 
-    <button id="accuracy" class=" btn btn-danger text-center pe-5 ps-5 position-absolute">${tool.accuracy.score ? tool.accuracy.score: "no data found" }</button>
+    <button id="accuracy" class=" btn btn-danger text-center">${tool.accuracy.score ? tool.accuracy.score: "0" }
+    % accuracy</button>
 
 
-
-    <h4>${tool.input_output_examples[0].input ? tool.input_output_examples[0].input: "No! Not Yet! Take a break!!!"}</h4>
+    <h4 class= "mt-5">${tool.input_output_examples[0].input ? tool.input_output_examples[0].input: "No! Not Yet! Take a break!!!"}</h4>
 
     <p>${tool.input_output_examples[0].output}</p>
     </div>
@@ -160,3 +162,13 @@ const displayApiDetails = tool =>{
 
     `
 }
+
+
+// //sort-by-date
+//  document.getElementById('sort-by-date').addEventListener('click', function () {
+//     loadAiUniverse();
+
+// })
+
+
+
